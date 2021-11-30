@@ -1,20 +1,19 @@
 package Test1;
 
 import java.time.Duration;
-
 import Pages.Cart;
 import Pages.OpenCart;
 import Pages.SearchField;
 import Pages.SelectItem;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.Select;
+
 
 public class Cases {
-    public static void main(String[] args) {
 
+
+
+    public static void main(String[] args) {
 
 
         System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
@@ -28,16 +27,22 @@ public class Cases {
         OpenCart open = new OpenCart(driver);
         Cart ct = new Cart(driver);
 
+        search.search();
+        search.deleteCookie();
 
-           search.search();
+        select.setSelectItem();
+        select.scrollTo();
+        select.AddToCart();
 
-           select.setSelectItem();
-           select.AddToCart();
 
-           open.OpenCart();
+        open.OpenOurCart();
 
-           ct.CartItem();
-           ct.DeleteItem();
+        ct.CheckItem();
+        ct.scrollTo();
+        ct.DeleteItem();
+        ct.CheckVoid();
+
 
     }
+
 }

@@ -1,5 +1,6 @@
 package Pages;
 
+import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -13,11 +14,12 @@ public class OpenCart {
         this.driver = driver;
     }
 
-    By OpenCart = By.className("incart__btns-cart");
+    By openCart = By.className("incart__btns-cart");
 
-    public void OpenCart() {
+    @Test
+    public void OpenOurCart() {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
-        driver.findElement(OpenCart).click();
+        driver.findElement(openCart).click();
     }
 
 }
